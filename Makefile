@@ -8,3 +8,10 @@ save:
 
 import:
 	pip install -r requirements.txt
+
+venv:
+	python3 -m venv graf
+
+active:
+	source graf/bin/activate
+	

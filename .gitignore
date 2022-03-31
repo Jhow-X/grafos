@@ -3,7 +3,7 @@
 graf/
 
 #text file
-*.txt
+arquivo.txt
 
 #test folde
 teste/
