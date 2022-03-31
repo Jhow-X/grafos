@@ -1,0 +1,9 @@
+#env files
+.env
+graf/
+
+#text file
+*.txt
+
+#test folde
+teste/
