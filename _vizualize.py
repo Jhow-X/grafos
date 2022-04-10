@@ -19,6 +19,7 @@ class GraphVisualization:
 	def addEdge(self, a, b):
 		temp = [a, b]
 		self.visual.append(temp)
+
 		
 	# In visualize function G is an object of
 	# class Graph given by networkx G.add_edges_from(visual)
