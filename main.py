@@ -59,10 +59,9 @@ def menu():
 				for i in removn:
 					a = i.split()
 					b= a[0].split(',')
-					grafo.addWeigEdge(b[0],b[1],b[2])
+					grafo.addWeigEdge(b[0],b[1],int(b[2]))
 
-			grafo.visualize(direcionado,valorado)
-			f.close()
+			sp = grafo.visualize(direcionado,valorado)
 
 		elif (option == 3):
 			
@@ -93,6 +92,11 @@ def menu():
 			lista = list(G.neighbors(variavel))
 			for l in lista:
 				print(l)
+		elif (option == 8):
+			if valorado == 0:
+				grafo.shotP(sp)
+			else:
+				grafo.shortPV(sp)
 		
 
 

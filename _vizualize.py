@@ -15,6 +15,25 @@ class GraphVisualization:
 	def addWeigEdge(self, a, b, c):
 		temp = [a, b, c]
 		self.Wvisual.append(temp)
+	
+	def shotP(self,grafo):
+		try:
+			t1 = input('de: ')
+			t2 = input('para: ')
+			sp= nx.shortest_path(grafo,t1,t2)
+			print('menor caminho de',t1,'para',t2,':',sp,"\n")
+		except nx.NetworkXNoPath:
+			print("não existem caminhos de",t1,"ate", t2,'\n')
+
+	def shortPV(self,grafo):
+		try:
+			t1 = input('de: ')
+			t2 = input('para: ')
+			sp= nx.single_source_dijkstra(grafo,t1,t2)
+			print('menor caminho de',t1,'para',t2,':',sp,"\n")
+		except nx.NetworkXNoPath:
+			print("não existem caminhos de",t1,"ate", t2,'\n')
+
 
 	def visualize(self,directed,weighted):
 		if directed == 0:
@@ -23,6 +42,7 @@ class GraphVisualization:
 				G.add_edges_from(self.visual)
 				nx.draw_networkx(G)
 				plt.show()
+				return G
 			else:
 				G = nx.Graph()
 				G.add_weighted_edges_from(self.Wvisual)
@@ -31,12 +51,14 @@ class GraphVisualization:
 				labels = nx.get_edge_attributes(G,'weight')
 				nx.draw_networkx_edge_labels(G,pos,edge_labels=labels)
 				plt.show()
+				return G
 		else:
 			if weighted == 0:
 				DG = nx.DiGraph()
 				DG.add_edges_from(self.visual)
 				nx.draw_networkx(DG)
 				plt.show()
+				return DG
 			else:
 				DG = nx.DiGraph()
 				DG.add_weighted_edges_from(self.Wvisual)
@@ -45,5 +67,6 @@ class GraphVisualization:
 				labels = nx.get_edge_attributes(DG,'weight')
 				nx.draw_networkx_edge_labels(DG,pos,edge_labels=labels)
 				plt.show()
+				return DG
 
 #https://networkx.org/documentation/stable/tutorial.html
