@@ -1,34 +1,49 @@
-# First networkx library is imported
-# along with matplotlib
 import networkx as nx
 import matplotlib.pyplot as plt
 
 
-# Defining a Class
 class GraphVisualization:
 
 	def __init__(self):
-		
-		# visual is a list which stores all
-		# the set of edges that constitutes a
-		# graph
 		self.visual = []
-		
-	# addEdge function inputs the vertices of an
-	# edge and appends it to the visual list
+		self.Wvisual = []
+	
 	def addEdge(self, a, b):
 		temp = [a, b]
 		self.visual.append(temp)
+	
+	def addWeigEdge(self, a, b, c):
+		temp = [a, b, c]
+		self.Wvisual.append(temp)
 
-		
-	# In visualize function G is an object of
-	# class Graph given by networkx G.add_edges_from(visual)
-	# creates a graph with a given list
-	# nx.draw_networkx(G) - plots the graph
-	# plt.show() - displays the graph
-	def visualize(self):
-		G = nx.Graph()
-		G.add_edges_from(self.visual)
-		nx.draw_networkx(G)
-		plt.show()
+	def visualize(self,directed,weighted):
+		if directed == 0:
+			if weighted == 0:
+				G = nx.Graph()
+				G.add_edges_from(self.visual)
+				nx.draw_networkx(G)
+				plt.show()
+			else:
+				G = nx.Graph()
+				G.add_weighted_edges_from(self.Wvisual)
+				pos=nx.spring_layout(G)
+				nx.draw_networkx(G,pos)
+				labels = nx.get_edge_attributes(G,'weight')
+				nx.draw_networkx_edge_labels(G,pos,edge_labels=labels)
+				plt.show()
+		else:
+			if weighted == 0:
+				DG = nx.DiGraph()
+				DG.add_edges_from(self.visual)
+				nx.draw_networkx(DG)
+				plt.show()
+			else:
+				DG = nx.DiGraph()
+				DG.add_weighted_edges_from(self.Wvisual)
+				pos=nx.spring_layout(DG)
+				nx.draw_networkx(DG,pos)
+				labels = nx.get_edge_attributes(DG,'weight')
+				nx.draw_networkx_edge_labels(DG,pos,edge_labels=labels)
+				plt.show()
+
 #https://networkx.org/documentation/stable/tutorial.html
