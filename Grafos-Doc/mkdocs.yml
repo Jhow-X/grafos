@@ -1,0 +1,7 @@
+site_name: Grafos-Doc
+nav:
+    - Home: index.md
+    - Arquivos: arquivos.md
+    - Produção: about.md
+    - Functions: func.md
+theme: readthedocs
