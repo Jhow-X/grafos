@@ -61,8 +61,11 @@ class GraphVisualization:
 			print("não existem caminhos de",t1,"ate", t2,'\n')
 
 	def getOrder(self,grafo):
-		print('ordem do grafo:',grafo.order())
-		
+		print('ordem do grafo:',grafo.order(),'\n')
+
+	def getSize(self,grafo):
+		print('tamanho do grafo: ',grafo.size(),'\n')
+
 	def visualize(self,directed,weighted):
 		if directed == 0:
 			if weighted == 0:

@@ -31,6 +31,7 @@ def menu():
 					G.add_edge(flag1, flag2)
 			nx.draw_networkx(G)
 			plt.show()
+			sp = G
 			
 		elif (option == 2):
 
@@ -67,12 +68,7 @@ def menu():
 			grafo.getOrder(sp)
 			
 		elif (option == 4):
-
-			##arquivo = "arquivo.txt"
-			with open(arquivo) as f:
-				g = f.read()
-			real_g = g.split("\n")
-			print("Tamanho do grafo:",len(real_g),"\n")
+			grafo.getSize(sp)
 			
 		elif (option == 5):
 			if direcionado == 0:
