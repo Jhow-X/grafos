@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Functions - Grafos-Doc</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Functions";
+        var mkdocs_page_input_path = "func.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Grafos-Doc
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../arquivos/">Arquivos</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">Produção</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Functions</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#mainpy">main.py</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_vizualizepy">_vizualize.py</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#init">init</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#addedge">addEdge</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#addweigedge">addWeigEdge</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#nodeconected">Nodeconected</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#grauv">grauV</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#grauvd">grauVD</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#isadj">isAdj</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#isadjd">isAdjD</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#shortp">shortP</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#shortpv">shortPV</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#getorder-e-getsize">getOrder e getSize</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#visualize">visualize</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Grafos-Doc</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>Functions</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="todas-as-funcoes-do-codigo">Todas as funções do código</h1>
+<p>Breve descrição contendo todos os arquivos de código do projeto e suas funções </p>
+<p>código fonte e demais arquivos usados para teste <a href="https://github.com/Jhow-X/grafos">aqui</a></p>
+<h2 id="mainpy">main.py</h2>
+<p>Menu da aplicação, responsável por toda lógica do programa</p>
+<pre><code class="language-python">def menu():
+print(&quot;Bem-vindo ao nosso Sistema de Grafos!\n&quot;)
+
+option = 0
+
+while(option != 9):
+
+    print(MENU_STRING)
+    option = int(input(&quot;Digite a opção desejada: &quot;))
+
+    if (option == 1):
+        G = nx.Graph()
+        flag = 0
+        while(flag != '$'):
+            flag = input(&quot;Digite '$' para parar de digitar as arestas &quot;)
+            if(flag != '$'):
+                G.add_node(flag)
+        flag1 = 0
+        flag2 = 0
+        while(flag1 != '$' or flag2 != '$'):
+            flag1 = input(&quot;Digite '$' para parar de digitar os vertices ou digite a primeira aresta &quot;)
+            flag2 = input(&quot;Digite '$' para parar de digitar os vertices ou digite a segunda aresta &quot;)
+
+            if(flag != '$' or flag2 != '$'):
+                G.add_edge(flag1, flag2)
+        nx.draw_networkx(G)
+        plt.show()
+        sp = G
+        direcionado = 0
+        valorado = 0
+
+    elif (option == 2):
+
+        direcionado = int(input(&quot;digite 1 para direcionado 0 para não direcionado: &quot;))
+        valorado = int(input(&quot;digite 1 para valorado 0 para não valorado: &quot;))
+
+        while True:
+            try:
+                arquivo = input('Digite o nome do arquivo (acompanhado do formato): ')      
+                with open(arquivo) as f:
+                    contents = f.read()
+
+            except FileNotFoundError:
+                print(&quot;nome incorreto do arquivo ou arquivo nao encontrado&quot;)
+                continue
+            break
+
+        removn = contents.split('\n')
+        if valorado == 0:
+            for i in removn:
+                a = i.split()
+                b= a[0].split(',')
+                grafo.addEdge(b[0],b[1])
+        else:
+            for i in removn:
+                a = i.split()
+                b= a[0].split(',')
+                grafo.addWeigEdge(b[0],b[1],float(b[2]))
+
+        sp = grafo.visualize(direcionado,valorado)
+
+    elif (option == 3):
+        grafo.getOrder(sp)
+
+    elif (option == 4):
+        grafo.getSize(sp)
+
+    elif (option == 5):
+        if direcionado == 0:
+            grafo.isAdj(sp)
+        else:
+            grafo.isAdjD(sp)
+
+    elif (option == 6):
+        if direcionado == 0:
+            grafo.grauV(sp)
+        else:
+            grafo.grauVD(sp)
+
+    elif(option == 7):
+        grafo.Nodeconected(sp)
+
+    elif (option == 8):
+        if valorado == 0:
+            grafo.shortP(sp)
+        else:
+            grafo.shortPV(sp)
+
+</code></pre>
+<h2 id="_vizualizepy">_vizualize.py</h2>
+<h3 id="init">init</h3>
+<p>lista de arrays vazios que serão populados pelos valores passados pelo usuário</p>
+<pre><code class="language-python">def __init__(self):
+        self.visual = [] // array para grafos não valorados
+        self.Wvisual = [] // array para grafos valorados
+
+</code></pre>
+<h3 id="addedge">addEdge</h3>
+<p>Recebe dois elementos e adiciona em um array vazio para criar um grafo não valorado</p>
+<pre><code class="language-python">def addEdge(self, a, b):
+        &quot;&quot;&quot;
+        Args:
+            a (any): primeiro vertice
+            b (any): segundo vertice
+        &quot;&quot;&quot;
+        temp = [a, b]
+        self.visual.append(temp)
+
+
+</code></pre>
+<h3 id="addweigedge">addWeigEdge</h3>
+<p>Recebe três elementos e adiciona em um array vazio para criar um grafo valorado</p>
+<pre><code class="language-python">def addWeigEdge(self, a, b, c):
+        &quot;&quot;&quot;
+        Args:
+            a (any): primeiro vertice
+            b (any): segundo vertice
+            c (number): peso da aresta
+        &quot;&quot;&quot;
+        temp = [a, b, c]
+        self.Wvisual.append(temp)
+
+</code></pre>
+<h3 id="nodeconected">Nodeconected</h3>
+<p>Recebe um grafo para uma verificação de conexão e diz se os dois vertices estão conectados</p>
+<pre><code class="language-python">def Nodeconected(self,grafo):
+        &quot;&quot;&quot;
+        Args:
+            grafo (graph): Grafo preenchido com os valores
+        &quot;&quot;&quot;
+        u = input('v1: ')
+        v = input('v2: ')
+        if u in grafo.neighbors(v):
+            print(u,'e',v,'Sao vizinhos\n')
+        else:
+            print(u, 'e',v,'Nao sao vizinhos\n')
+
+
+</code></pre>
+<h3 id="grauv">grauV</h3>
+<p>Recebe um grafo para uma checagem de grau e pendencia para um grafo não direcionado e no final diz o grau e se um vertice é pendente ou não</p>
+<pre><code class="language-python">def grauV(self,grafo):
+        &quot;&quot;&quot;
+        Args:
+            grafo (graph): Grafo preenchido com os valores
+        &quot;&quot;&quot;
+        variavel = input(&quot;Vertice: &quot;)
+        gr = grafo.degree[variavel]
+        print('grau do vertice:',gr)
+        if gr == 1:
+            print(&quot;pendente\n&quot;)
+        else:
+            print('nao pendente\n')
+
+</code></pre>
+<h3 id="grauvd">grauVD</h3>
+<p>Recebe um grafo para uma checagem de grau e pendencia para um grafo direcionado e no final diz o grau de entrada e saída e se um vertice é pendente ou não</p>
+<pre><code class="language-python">def grauVD(self,grafo):
+        &quot;&quot;&quot;
+        Args:
+            grafo (graph): Grafo preenchido com os valores
+        &quot;&quot;&quot;
+        variavel = input(&quot;Vertice: &quot;)
+        gr = grafo.degree[variavel]
+        print('grau de entrada: ',grafo.in_degree(variavel))
+        print('grau de saida: ',grafo.out_degree(variavel))
+        if gr == 1:
+            print(&quot;pendente\n&quot;)
+        else:
+            print('nao pendente\n')
+
+</code></pre>
+<h3 id="isadj">isAdj</h3>
+<p>Checa os vertices adjacentes ao vertice passado de um grafo não direcionado e retorna a lista com todos</p>
+<pre><code class="language-python">def isAdj(self,grafo):
+        &quot;&quot;&quot;
+        Args:
+            grafo (graph): Grafo preenchido com os valores
+        &quot;&quot;&quot;
+        variavel = input(&quot;Digite o vertice que deseja verificar: &quot;)
+        print('vertices adjacentes: ',grafo.edges(variavel))
+
+</code></pre>
+<h3 id="isadjd">isAdjD</h3>
+<p>Checa os vertices adjacentes ao vertice passado de um grafo direcionado e retorna a lista com todos separados por entrada e saída</p>
+<pre><code class="language-python">def isAdjD(self,grafo):
+    &quot;&quot;&quot;
+    Args:
+        grafo (graph): Grafo preenchido com os valores
+    &quot;&quot;&quot;
+    variavel = input(&quot;Digite o vertice que deseja verificar: &quot;)
+    print('vertices adjacentes de entrada: ',grafo.in_edges(variavel))
+    print('vertices adjacentes de saida: ',grafo.out_edges(variavel),'\n')
+
+</code></pre>
+<h3 id="shortp">shortP</h3>
+<p>Checa o menor caminho entre dois vertices de um grafo não valorado e retorna uma lista de v1 a v2</p>
+<pre><code class="language-python">def shortP(self,grafo):
+    &quot;&quot;&quot;
+    Args:
+        grafo (graph): Grafo preenchido com os valores
+    &quot;&quot;&quot;
+    try:
+        t1 = input('de: ')
+        t2 = input('para: ')
+        sp= nx.shortest_path(grafo,t1,t2)
+        print('menor caminho de',t1,'para',t2,':',sp,&quot;\n&quot;)
+    except nx.NetworkXNoPath:
+        print(&quot;não existem caminhos de&quot;,t1,&quot;ate&quot;, t2,'\n')
+
+
+</code></pre>
+<h3 id="shortpv">shortPV</h3>
+<p>Checa o menor caminho entre dois vertices de um grafo valorado e retorna uma lista de v1 a v2 e o custo total do caminho</p>
+<pre><code class="language-python">def shortPV(self,grafo):
+    &quot;&quot;&quot;
+    Args:
+        grafo (graph): Grafo preenchido com os valores
+    &quot;&quot;&quot;
+    try:
+        t1 = input('de: ')
+        t2 = input('para: ')
+        sp= nx.single_source_dijkstra(grafo,t1,t2)
+        print('menor caminho de',t1,'para',t2,':',sp,&quot;\n&quot;)
+    except nx.NetworkXNoPath:
+        print(&quot;não existem caminhos de&quot;,t1,&quot;ate&quot;, t2,'\n')
+
+</code></pre>
+<h3 id="getorder-e-getsize">getOrder e getSize</h3>
+<p>Recebe um grafo, retorna sua ordem e tamanho</p>
+<pre><code class="language-python">def getOrder(self,grafo):
+    &quot;&quot;&quot;
+    Args:
+        grafo (graph): Grafo preenchido com os valores
+    &quot;&quot;&quot;
+    print('ordem do grafo:',grafo.order(),'\n')
+
+def getSize(self,grafo):
+    &quot;&quot;&quot;
+    Args:
+        grafo (graph): Grafo preenchido com os valores
+    &quot;&quot;&quot;
+    print('tamanho do grafo: ',grafo.size(),'\n')
+
+</code></pre>
+<h3 id="visualize">visualize</h3>
+<p>Função principal do programa, responsável por montar, exibir e retornar o grafo passado pelo usuário dependendo do tipo de grafo</p>
+<pre><code class="language-python">def visualize(self,directed,weighted):
+    &quot;&quot;&quot;
+    Args:
+        directed (int): Informa se um grafo é direcionado ou não
+        weighted (int): Informa se um grafo é valorado ou não
+
+    Returns:
+        grafo: Retorna um grafo preenchido com os valores passados pelo usuário
+    &quot;&quot;&quot;
+    if directed == 0:
+        if weighted == 0:
+            G = nx.Graph()
+            G.add_edges_from(self.visual)
+            nx.draw_networkx(G)
+            plt.show()
+            return G
+        else:
+            G = nx.Graph()
+            G.add_weighted_edges_from(self.Wvisual)
+            pos=nx.spring_layout(G)
+            nx.draw_networkx(G,pos)
+            labels = nx.get_edge_attributes(G,'weight')
+            nx.draw_networkx_edge_labels(G,pos,edge_labels=labels)
+            plt.show()
+            return G
+    else:
+        if weighted == 0:
+            DG = nx.DiGraph()
+            DG.add_edges_from(self.visual)
+            nx.draw_networkx(DG)
+            plt.show()
+            return DG
+        else:
+            DG = nx.DiGraph()
+            DG.add_weighted_edges_from(self.Wvisual)
+            pos=nx.spring_layout(DG)
+            nx.draw_networkx(DG,pos)
+            labels = nx.get_edge_attributes(DG,'weight')
+            nx.draw_networkx_edge_labels(DG,pos,edge_labels=labels)
+            plt.show()
+            return DG
+
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../about/" class="btn btn-neutral float-left" title="Produção"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../about/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Grafos-Doc</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Home";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> Grafos-Doc
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href=".">Home</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#baixando-o-projeto">Baixando o projeto</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#setup-inicial">Setup inicial</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="arquivos/">Arquivos</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="about/">Produção</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="func/">Functions</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">Grafos-Doc</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>Home</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="sistema-de-visualizacao-e-analise-de-grafos">Sistema de visualização e analise de grafos</h1>
+<p>Sistema básico para criação de grafos manualmente ou através de arquivos</p>
+<h2 id="baixando-o-projeto">Baixando o projeto</h2>
+<p>Para baixar todo projeto:</p>
+<pre><code class="language-shell">$ git clone https://github.com/Jhow-X/grafos.git
+</code></pre>
+<h2 id="setup-inicial">Setup inicial</h2>
+<p>no mesmo diretório do makefile rode:</p>
+<pre><code class="language-shell">$ make venv
+</code></pre>
+<p>caso não possua o python3-venv ler a <a href="https://docs.python.org/3/library/venv.html">documentação</a></p>
+<p>Após isso rode:</p>
+<pre><code class="language-shell">$ source graf/bin/activate
+</code></pre>
+<p>Para inicializar o ambiente virtual.</p>
+<p>Para importar as coisas necessárias pra executar o código, rode:</p>
+<pre><code class="language-shell">$ make import
+</code></pre>
+<p>com isso tudo estará setado e pronto para o funcionamento do projeto então por fim rode:</p>
+<pre><code class="language-shell">$ make run
+</code></pre>
+<p>para iniciar o projeto</p>
+<h1 id="passando-os-dados">Passando os dados</h1>
+<h2 id="manualmente">Manualmente</h2>
+<p>O sistema começará a pedir os vértices um a um para parar de inserir valores é só digitar '$'(sem as aspas), depois começará a pedir a informação das arestas e para parar faça igual anteriormente.</p>
+<h2 id="usando-arquivos">Usando arquivos</h2>
+<p>os valores são passados em um arquivo (preferencialmente txt ou csv) com os valores separados por vírgulas como no exemplo a baixo:</p>
+<pre><code class="language-text">1,2
+</code></pre>
+<p>O sistema cria grafos direcionados e não direcionados com base na opção escolhida considerando o valor da esquerda como o vertice de saída e o da direita como vértice de entrada.</p>
+<h3 id="grafos-valorados">Grafos valorados</h3>
+<p>Para criar grafos valorados apenas adicione uma coluna a mais com o valor do peso, como no exemplo a baixo:</p>
+<pre><code class="language-text">1,2,40
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="arquivos/" class="btn btn-neutral float-right" title="Arquivos">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="arquivos/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme_extra.js" defer></script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.3.0
+Build Date UTC : 2022-04-13 23:43:22.006646+00:00
+-->
