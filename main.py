@@ -2,7 +2,7 @@ from _vizualize import *
 import networkx as nx
 import matplotlib.pyplot as plt
 MENU_STRING = "1) Criar grafo 1 por 1 \n2) Criar grafo em lote\n3) Obter ordem do grafo\n4) Obter tamanho do grafo\n5) Obter lista de vertices adjacentes\n6) Obter grau do vértice\n7) Verificar se dois vértices são adjacentes\n8) Obter o menor caminho entre dois vértices\n9) Sair\n"
-
+grafo = GraphVisualization()
 def menu():
 
 	print("Bem-vindo ao nosso Sistema de Grafos!\n")
@@ -48,7 +48,6 @@ def menu():
 					continue
 				break
 
-			grafo = GraphVisualization()
 			removn = contents.split('\n')
 			if valorado == 0:
 				for i in removn:
@@ -59,42 +58,40 @@ def menu():
 				for i in removn:
 					a = i.split()
 					b= a[0].split(',')
-					grafo.addWeigEdge(b[0],b[1],int(b[2]))
+					grafo.addWeigEdge(b[0],b[1],float(b[2]))
 
 			sp = grafo.visualize(direcionado,valorado)
 
 		elif (option == 3):
 			
-			arquivo = "arquivo.txt"
-			with open(arquivo) as f:
-				g = f.read()
-
-			real_g = g.replace(",", "\n")
-			
-			order_g = list(set(real_g.split("\n")))
-			
-			print("Ordem do grafo:",len(order_g),"\n")
+			grafo.getOrder(sp)
 			
 		elif (option == 4):
 
-			arquivo = "arquivo.txt"
+			##arquivo = "arquivo.txt"
 			with open(arquivo) as f:
 				g = f.read()
 			real_g = g.split("\n")
 			print("Tamanho do grafo:",len(real_g),"\n")
 			
 		elif (option == 5):
-			variavel = input("Digite o vertice que deseja verificar: ")
-			print(G.edges(variavel))
+			if direcionado == 0:
+				grafo.isAdj(sp)
+			else:
+				grafo.isAdjD(sp)
 			
 		elif (option == 6):
-			variavel = input("Digite o vertice que deseja verificar: ")
-			lista = list(G.neighbors(variavel))
-			for l in lista:
-				print(l)
+			if direcionado == 0:
+				grafo.grauV(sp)
+			else:
+				grafo.grauVD(sp)
+
+		elif(option == 7):
+			grafo.Nodeconected(sp)
+
 		elif (option == 8):
 			if valorado == 0:
-				grafo.shotP(sp)
+				grafo.shortP(sp)
 			else:
 				grafo.shortPV(sp)
 		
