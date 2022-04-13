@@ -12,6 +12,4 @@ import:
 venv:
 	python3 -m venv graf
 
-active:
-	source graf/bin/activate
 	

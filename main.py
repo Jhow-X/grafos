@@ -1,9 +1,11 @@
 from _vizualize import *
 import networkx as nx
 import matplotlib.pyplot as plt
-MENU_STRING = "1) Criar grafo 1 por 1 \n2) Criar grafo em lote\n3) Obter ordem do grafo\n4) Obter tamanho do grafo\n5) Obter lista de vertices adjacentes\n6) Obter grau do vértice\n7) Verificar se dois vértices são adjacentes\n8) Obter o menor caminho entre dois vértices\n9) Sair\n"
+MENU_STRING = "1) Criar grafo 1 por 1 \n2) Criar grafo em lote\n3) Obter ordem do grafo\n4) Obter tamanho do grafo\n5) Obter lista de vertices adjacentes\n6) Obter grau e pendencia do vértice\n7) Verificar se dois vértices são adjacentes\n8) Obter o menor caminho entre dois vértices\n9) Sair\n"
 grafo = GraphVisualization()
 def menu():
+	"""Menu da aplicação, responsável por toda lógica do programa
+	"""
 
 	print("Bem-vindo ao nosso Sistema de Grafos!\n")
 
@@ -32,6 +34,8 @@ def menu():
 			nx.draw_networkx(G)
 			plt.show()
 			sp = G
+			direcionado = 0
+			valorado = 0
 			
 		elif (option == 2):
 
@@ -64,7 +68,6 @@ def menu():
 			sp = grafo.visualize(direcionado,valorado)
 
 		elif (option == 3):
-			
 			grafo.getOrder(sp)
 			
 		elif (option == 4):
